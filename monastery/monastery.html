@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous">
+  </script>
+  <link rel="stylesheet" href="../main/main.css">
+  <link rel="stylesheet" href="monastery.css">
+  <script src="../main/main.js"></script>
+  <title>Rpg</title>
+</head>
+
+<body>
+
+
+  <div class="bg">
+    <div class="row">
+      <div class="col-8 blackbg">
+        <div class="d-flex justify-content-around">
+          <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#mapModal">
+            MAP
+          </button>
+        </div>
+        <div id="opening" class="story">
+          <p>finally you reach the monastery ...
+            everything is silent and no one can be seen around him. you get the impression that the monastery is
+            climbing towards the heavens casting a shadow over the whole valley around </p>
+          <div class="d-flex justify-content-around">
+            <button class="btn btn-secondary" id="elfButton"
+              onclick="displayNext('opening','Choice', 'strange place')">Continue </button>
+          </div>
+        </div>
+        <div id="Choice" class="story hidden">
+          <p>finally you reach the monastery ...
+            Everything around is silent and no one can be seen around him. You get the impression that the monastery is
+            climbing towards the heavens casting a shadow over the whole valley around...</p>
+          <p>Do you want to come explore the monastery? in addition to the road to the monastery, there are also roads
+            to
+            the west and east ...</p>
+          <div class="d-flex justify-content-around">
+
+            <a href="../swamps/swamps.html"><button class="btn btn-secondary" id="cross">Go West</button></a>
+            <button class="btn btn-secondary" id="elfButton"
+              onclick="displayNext('Choice','monastery', 'strange place')">Explore the Monastery </button>
+            <a href="../cave/cave.html"><button class="btn btn-secondary" id="cross">Go East</button></a>
+          </div>
+        </div>
+
+        <div id="monastery" class="story hidden">
+          <p> You go to the door of the monastery and knock ...
+            after a long moment the door opens,
+            you go inside and find a lonely monk nodding his head to the left croner</p>
+          <div class="d-flex justify-content-around">
+            <button class="btn btn-secondary" id="elfButton"
+              onclick="displayNext('monastery','enter', 'I think we should go left')">Continue </button>
+          </div>
+        </div>
+        <div id="enter" class="story hidden">
+          <p>You are faced with a choice. There is corridor on the left and on the right ...</p>
+          <div class="d-flex justify-content-around">
+            <button class="btn btn-secondary" id="elfButton"
+              onclick="displayNext('enter','mainHall', 'I think we should go left')">Left </button>
+            <button class="btn btn-secondary" id="elfButton"
+              onclick="displayNext('enter','kick', 'What ? Why ? ')">Right </button>
+          </div>
+        </div>
+
+        <div id="kick" class="story hidden">
+          <p>Monk expels you from the monastery and closes the door behind you ...</p>
+          <p>Now you have to choose between east and west</p>
+          <div class="d-flex justify-content-around">
+            <a href="../cave/cave.html"><button class="btn btn-secondary" id="cross">Go East</button></a>
+            <a href="../swamps/swamps.html"><button class="btn btn-secondary" id="cross">Go West</button></a>
+          </div>
+        </div>
+
+        <div id="mainHall" class="story hidden">
+          <p>You go left and you reach the meditation room in which sits a little old monk ...</p>
+          <div class="d-flex justify-content-around">
+            <button class="btn btn-secondary" id="elfButton"
+              onclick="displayNext('mainHall','monk', 'let me talk with him')">Continue </button>
+          </div>
+        </div>
+
+        <div id="monk" class="story hidden">
+          <p>The wizard walks up to the monk and talks to him...</p>
+          <p> After a long conversation the wizard returns ...</p>
+          <div class="d-flex justify-content-around">
+            <button class="btn btn-secondary" id="elfButton"
+              onclick="displayNext('monk','question', 'he will answer one your question, choose wisely')">Continue
+            </button>
+          </div>
+        </div>
+
+        <div id="question" class="story hidden">
+          <p>You have to choose the right question ...
+            after long reflection you come up with three ideas</p>
+          <div class="d-flex justify-content-around">
+            <button class="btn btn-secondary" id="elfButton"
+              onclick="displayNext('question','q1', 'I told you, choose your question wisely ...')">Ask what
+              his name is ...
+            </button>
+            <button class="btn btn-secondary" id="elfButton"
+              onclick="displayNext('question','q2', 'good question, it will certainly help us on our further journey ...')">
+              Ask about the location of any ancient artifact ?
+            </button>
+            <button class="btn btn-secondary" id="elfButton"
+              onclick="displayNext('question','q3', 'good question, it will certainly help us on our further journey ...')">Can
+              you tell me what is on West and East of the Monastery?
+            </button>
+          </div>
+        </div>
+
+        <div id="q1" class="story hidden">
+          <p>My name is pong...</p>
+          <p> Monk gets up and leads you to leave the monastery.</p>
+          <div class="d-flex justify-content-around">
+            <button class="btn btn-secondary" id="elfButton"
+              onclick="displayNext('q1','exit', 'What a waste... ')">Continue </button>
+          </div>
+        </div>
+
+        <div id="q2" class="story hidden">
+          <p>The ancient scrolls mention two objects of such mighty power. In the Town Kraster and in
+            the mage's tower north of the Silver Forest and in the Cave to the east, but you are not allowed to go there
+          </p>
+          <p> Monk gets up and leads you to leave the monastery.</p>
+          <div class="d-flex justify-content-around">
+            <button class="btn btn-secondary" id="elfButton" onclick="displayNext('q2','exit', 'Lets go ')">Continue
+            </button>
+          </div>
+        </div>
+
+        <div id="q3" class="story hidden">
+          <p>Of course there is a swamp to the west... and dragon cave to the east, but dont go there he ll kill you
+          </p>
+          <p> Monk gets up and leads you to leave the monastery.</p>
+          <div class="d-flex justify-content-around">
+            <button class="btn btn-secondary" id="elfButton" onclick="displayNext('q3','exit', 'Lets go ')">Continue
+            </button>
+          </div>
+        </div>
+
+
+        <div id="exit" class="story hidden">
+          <p>Now you have to choose between east and west</p>
+          <div class="d-flex justify-content-around">
+            <a href="../swamps/swamps.html"><button class="btn btn-secondary" id="cross">Go West</button></a>
+            <a href="../cave/cave.html"><button class="btn btn-secondary" id="cross">Go East</button></a>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="col-4">
+        <div class="sticky" id="narrator">
+          <p class="bubble speech" id="speech"></p>
+          <img id="photoOfNarrator" src="../photos/narrator.png" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="mapModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <img src="../photos/Game.jpg" style="width:100%;height:100%;">
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>

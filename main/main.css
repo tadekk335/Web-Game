@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Handlee&display=swap');
+
+body {
+    font-family: 'Handlee', cursive;
+    font-weight: 400;
+    text-align: justify;
+    background-color: #F2EECB;
+}
+
+/* text padding */
+.story:first-of-type {
+    padding: 5% 10% 1% 10%;
+}
+
+.story {
+    padding: 1% 10% 1% 10%;
+}
+
+/* hiding further elements */
+.hidden {
+    display: none;
+}
+
+a>img {
+    width: 250px;
+    height: 250px;
+}
+
+a img{
+    opacity: 1;
+  }
+
+a:hover img{
+    opacity: 0.7;
+  }
+
+
+/* buttons */
+button {
+    margin: 15px;
+}
+
+.btn.btn-secondary {
+    background: #6698cb;
+    border-color: #6698cb;
+    color: #000;
+    font-weight: 600;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
+}
+
+/* semi transparent text background */
+.blackbg {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* wizard stays in view*/
+.sticky {
+    position: -webkit-sticky;
+    /* Safari */
+    position: sticky;
+    top: 30px;
+    right: 30px;
+}
+
+#photoOfNarrator {
+    width: 30%;
+    height: auto;
+}
+
+/* speech bubble */
+p.bubble {
+    color: black;
+    position: relative;
+    width: 300px;
+    text-align: center;
+    line-height: 1.4em;
+    margin: 40px auto;
+    background-color: #fff;
+    border: 8px solid #333;
+    border-radius: 30px;
+    padding: 20px;
+    font-size: large;
+}
+
+p.bubble:before,
+p.bubble:after {
+    content: ' ';
+    position: absolute;
+    width: 0;
+    height: 0;
+}
+
+p.speech:before {
+    left: 100px;
+    bottom: -50px;
+    border: 25px solid;
+    border-color: #333 transparent transparent #333;
+}
+
+p.speech:after {
+    left: 108px;
+    bottom: -30px;
+    border: 15px solid;
+    border-color: #fff transparent transparent #fff;
+}
+
+.error {
+    color: red;
+    display: inline-block;
+    margin: 10px 0px 10px 0px;
+}
+
+.modal-header,
+.modal-body {
+    background-color: #5b8172;
+}

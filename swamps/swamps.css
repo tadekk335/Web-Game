@@ -1,0 +1,12 @@
+body, html {
+    height: 100%;
+    font-size: 1.1rem;
+    color: white;
+}
+.bg {
+    background-image: url("../photos/swamp.jpg");
+    height: 150%;
+    background-position:center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

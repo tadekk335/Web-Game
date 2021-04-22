@@ -1,0 +1,20 @@
+body, html {
+    height: 100%;
+    font-size: 1.1rem;
+    color: white;
+}
+.bg {
+    background-image: url("../photos/forest.jpg");
+    height: 150%;
+    background-position:center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bgForest {
+    background-image: url("../photos/forestN.jpg");
+    height: 120%;
+    background-position:center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

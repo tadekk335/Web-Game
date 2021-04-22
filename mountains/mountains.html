@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous">
+    </script>
+    <link rel="stylesheet" href="../main/main.css">
+    <link rel="stylesheet" href="mountains.css">
+    <script src="../main/main.js"></script>
+    <title>Rpg</title>
+</head>
+
+<body>
+    <div class="bg">
+        <div class="row">
+            <div class="col-8 blackbg">
+                <div class="d-flex justify-content-around">
+                    <button type="button" class="btn btn-secondary btn-lg" data-toggle="modal" data-target="#mapModal">
+                        MAP
+                    </button>
+                </div>
+                <div id="opening" class="story">
+                    <p>After 1 day of hiking with the wizard reach the Red Mountains. The
+                        mountain range stretches to the horizon on both left and right side; a breath taking view
+                        indeed.</p>
+
+                    <div class="d-flex justify-content-around">
+                        <button class="btn btn-secondary" id="moveOnButton"
+                            onclick="displayNext('opening', 'startingMountain', 'Ah finally Red Mountains... I look forward to the adventures that await us there')">Continue</button>
+                    </div>
+                </div>
+                <div id="startingMountain" class="story hidden">
+                    <p>Together with the wizard, you see a wooden signpost with the words 'Monastery ahead, Silver
+                        Forest to the left'.</p>
+                    <p> This is the last chance to change direction where do you want to go?
+                    </p>
+
+                    <div class="d-flex justify-content-around">
+                        <a href="../woods/wood.html"><button class="btn btn-secondary" id="woodsChoice">Silver
+                                Forest</button></a>
+                        <button class="btn btn-secondary" id="redMountainsButton"
+                            onclick="displayNext('startingMountain', 'mountainStory')">Red Mountains</button>
+                    </div>
+                </div>
+
+                <div id="mountainStory" class="story hidden">
+                    <p>You travel slowly and carefully through the mountains with the wizard. The lack of dangers up
+                        until now does not mean that you can travel carelessly.
+                        After many miles you come across a damaged caravan, but you don't see any people around.
+                    </p>
+
+                    <div class="d-flex justify-content-around">
+                        <button class="btn btn-secondary" id="brokenCaravanButton"
+                            onclick="displayNext('mountainStory', 'mountainEvent')">Continue</button>
+                    </div>
+                </div>
+                <div id="mountainEvent" class="story hidden">
+                    <p> Will you check it out or are you going on?
+                    </p>
+                    <div class="d-flex justify-content-around">
+                        <button class="btn btn-secondary" id="checkButton"
+                            onclick="displayNext('mountainEvent', 'mountainCaravan')">Check</button>
+                        <a href="../monastery/monastery.html"><button class="btn btn-secondary" id="endOfMountains">Go
+                                on </button></a>
+                    </div>
+                </div>
+                <div id="mountainCaravan" class="story hidden">
+                    <p>When you approach the caravan, you hear the sound of people talking.</p>
+                    <div class="d-flex justify-content-around">
+                        <button class="btn btn-secondary" id="sneakButton"
+                            onclick="displayNext('mountainCaravan','sneez','Ahooo! oops sorry')">Sneak up on them
+                            silently and listen </button>
+                        <button class="btn btn-secondary" id="askButton"
+                            onclick="displayNext('mountainCaravan','monks', 'Hello ?')">Ask if anyone is there</button>
+                    </div>
+                </div>
+                <div id="sneez" class="story hidden">
+                    <p>The wizard sneezes loudly, certainly not by accident ...
+                    </p>
+                    <div class="d-flex justify-content-around">
+                        <button class="btn btn-secondary" id="sneakSneezButton"
+                            onclick="displayNext('sneez','monks', )">Continue </button>
+                    </div>
+                </div>
+                <div id="monks" class="story hidden">
+                    <p> Two people dressed in habits come out of the caravan.
+                        They greet you and ask if you want to help them with the caravan, they are in a rush to town but
+                        they are unable to fix it themselves.
+                    </p>
+                    <div class="d-flex justify-content-around">
+                        <button class="btn btn-secondary" id="helpButton"
+                            onclick="displayNext('monks','help', 'We should deal with this quickly')">Help
+                            them </button>
+                    </div>
+                </div>
+                <div id="help" class="story hidden">
+                    <p>You and the wizard spend the entire afternoon repairing the caravan.
+                        As a reward for your help, the monks share with you information about a magical artifact of
+                        great power hidden in a cave to the east of the Monastery.</p>
+                    <p>They also warn you not to go there under any circumstances, because it will end up with the death
+                        of many people ...
+                    </p>
+                    <div class="d-flex justify-content-around">
+                        <a href="../monastery/monastery.html"><button class="btn btn-secondary" id="endOfMountains">Go
+                                to Monastery </button></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="sticky" id="narrator">
+                    <p class="bubble speech" id="speech"></p>
+                    <img id="photoOfNarrator" src="../photos/narrator.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="mapModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img src="../photos/Game.jpg" style="width:100%;height:100%;">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

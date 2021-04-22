@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous">
+    </script>
+    <link rel="stylesheet" href="../main/main.css">
+    <link rel="stylesheet" href="tower.css">
+    <script src="../main/main.js"></script>
+    <title>Rpg</title>
+</head>
+
+<body>
+    <div class="bg">
+        <div class="row">
+            <div class="col-8 blackbg">
+                <div class="d-flex justify-content-around">
+                    <button type="button" class="btn btn-secondary btn-lg" data-toggle="modal" data-target="#mapModal">
+                        MAP
+                    </button>
+                </div>
+                <div id="opening" class="story">
+                    <p>You and the wizard will reach the tundra plateaus. Barren snowy wastelands are only adorned by a
+                        huge tower rising in the center of the tundra.</p>
+                    <div class="d-flex justify-content-around">
+                        <button class="btn btn-secondary" id="openingButton"
+                            onclick="displayNext('opening', 'startingTower', 'I can sense the magic in this tower')">Continue</button>
+                    </div>
+                </div>
+
+                <div id="startingTower" class="story hidden">
+                    <p>You and the wizard slowly approach the tower to examine it. As you approach the door, the stone
+                        head of the gargoyle above it turns towards you.</p>
+
+                    <div class="d-flex justify-content-around">
+                        <button class="btn btn-secondary" id="towerButton"
+                            onclick="displayNext('startingTower', 'gate', 'interesting spell')">Continue</button>
+                    </div>
+                </div>
+
+                <div id="gate" class="story hidden">
+                    <p>The gargoyle speaks to you, that he will not let you in without a correct answer to
+                        the riddle his master left ...</p>
+                    <div class="d-flex justify-content-around">
+                        <button class="btn btn-secondary" id="gateButton"
+                            onclick="displayNext('gate', 'riddle', 'I hate riddles')">Continue</button>
+                    </div>
+                </div>
+
+                <div id="riddle" class="story hidden">
+                    <p>It lives among the people.</p>
+                    <p>It spreads plague.</p>
+                    <p>It is my enemy.</p>
+                    <p>If you give the wrong answer ... you will die</p>
+                    <div class="d-flex justify-content-around">
+                        <button class="btn btn-secondary" id="moveOnButton"
+                            onclick="displayNext('riddle', 'lose', 'I hate rats more than riddles')">Rats</button>
+
+                        <button class="btn btn-secondary" id="moveOnButton"
+                            onclick="displayNext('riddle', 'lose', 'it was racist')">Gnomes</button>
+
+                        <button class="btn btn-secondary" id="moveOnButton"
+                            onclick="displayNext('riddle', 'end', 'What? I do not understand')">Pigeons</button>
+                    </div>
+                </div>
+
+                <div id="lose" class="story hidden">
+                    <p>A gargoyle hits you with a fireball, unfortunately you both die.</p>
+                    <p>Your adventure ends at this point. </p>
+                    <div class="d-flex justify-content-around">
+                        <a href="../intro/end.html"><img src="../photos/gameOver.PNG"></a>
+                    </div>
+                </div>
+
+                <div id="end" class="story hidden">
+                    <p>The gargoyle opens the door to the tower. After a long search you find an ancient coin.</p>
+                    <p>You finally have your artifact ... </p>
+                    <p>Your adventure ends at this point. </p>
+                    <p> Congratulations. </p>
+                    <div class="d-flex justify-content-around">
+                        <a href="../intro/end.html"><img src="../photos/reward.PNG"></a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-4">
+                <div class="sticky" id="narrator">
+                    <p class="bubble speech" id="speech"></p>
+                    <img id="photoOfNarrator" src="../photos/narrator.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="mapModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img src="../photos/Game.jpg" style="width:100%;height:100%;">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

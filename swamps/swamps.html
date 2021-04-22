@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous">
+    </script>
+    <link rel="stylesheet" href="../main/main.css">
+    <link rel="stylesheet" href="swamps.css">
+    <script src="../main/main.js"></script>
+    <script src="swamps.js"></script>
+    <title>Rpg</title>
+</head>
+
+<body>
+    <div class="bg">
+        <div class="row">
+            <div class="col-8 blackbg">
+                <div class="d-flex justify-content-around">
+                    <button type="button" class="btn btn-secondary btn-lg" data-toggle="modal" data-target="#mapModal">
+                        MAP
+                    </button>
+                </div>
+                <div id="opening" class="story">
+                    <p>After a long and tiring hike, you stop to rest and recognize the surrounding areas</p>
+                    <div class="d-flex justify-content-around">
+                        <button class="btn btn-secondary" id="swampStartButton"
+                            onclick="displayNext('opening', 'crossswamp','what a stench do you smell it?')">Continue</button>
+                    </div>
+
+                </div>
+                <div id="crossswamp" class="story hidden">
+                    <p>You reached the swamps,
+                        There is a thick fog everywhere. There is a musty smell of damp in the air. You and the wizard
+                        want to get away from here as soon as possible, but you can't find any way through the fog ...
+                    </p>
+                    <div class="d-flex justify-content-around">
+                        <button class="btn btn-secondary" id="fogButton"
+                            onclick="displayNext('crossswamp', 'campSwamp','at worst, we ll dispel the fog by my magic, but I d rather avoid it')">Continue</button>
+                    </div>
+                </div>
+                <div id="campSwamp" class="story hidden">
+                    <p>A journey in the fog has no effect, you are probably walking in a circle.
+                        You stop for a moment to reflect on the next steps.
+                    </p>
+                    <div class="d-flex justify-content-around">
+                        <button class="btn btn-secondary" id="fogCampButton"
+                            onclick="displayNext('campSwamp', 'choiceSwamp','I think I hear someone calling for help')">Continue</button>
+                    </div>
+                </div>
+                <div id="choiceSwamp" class="story hidden">
+                    <p>You hear nothing, but the wizard insists on his opinion.
+                    </p>
+                    <div class="d-flex justify-content-around">
+                        <button class="btn btn-secondary" id="helpCallButton"
+                            onclick="displayNext('choiceSwamp', 'helpCall','I think I hear someone calling for help'); saveChoice('Help', true)">Investigate
+                            the call for help</button>
+                        <a href="../city/city.html"><button class="btn btn-secondary" id="wizzardSpellButton"
+                                onclick="saveChoice('Help', false)">Ask
+                                a wizard to use spells to leave the swamps </button></a>
+                    </div>
+                </div>
+
+                <div id="helpCall" class="story hidden">
+                    <p>You follow the wizard after a while you will actually hear a cry for help. you follow the call in
+                        dense fog. you see a boy half submerged in the swamp.
+                    </p>
+                    <div class="d-flex justify-content-around">
+                        <button class="btn btn-secondary" id="boySwamp"
+                            onclick="displayNext('helpCall', 'boy','Hurry lets help him')">Continue</button>
+                    </div>
+                </div>
+
+                <div id="boy" class="story hidden">
+                    <p>You take the boy out of the swamp. he introduces himself as Adam, the son of a noble family from
+                        the town of Kraster. He says that he knows how to leave the swamps and asks you to go with him
+                        to the city so that he can repay you for saving
+                    </p>
+                    <div class="d-flex justify-content-around">
+                        <a href="../city/city.html"><button class="btn btn-secondary" id="endOfSwamp">Go
+                                to Kraster </button></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="sticky" id="narrator">
+                    <p class="bubble speech" id="speech"></p>
+                    <img id="photoOfNarrator" src="../photos/narrator.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="mapModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img src="../photos/Game.jpg" style="width:100%;height:100%;">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
