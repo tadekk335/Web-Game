@@ -1,9 +1,9 @@
-export function displayNext(fromElement, choice, conversation = "...") {
+function displayNext(fromElement, choice, conversation = "...") {
     hideButtons(fromElement);
     toggleHidden(choice);
     displayConversation(conversation);
 }
-export function hideButtons(fromElement) {
+function hideButtons(fromElement) {
     const parent = document.getElementById(fromElement);
     const matches = parent.querySelectorAll("button");
     matches.forEach(element => {
@@ -11,12 +11,12 @@ export function hideButtons(fromElement) {
     });
 }
 
-export function toggleHidden(element) {
+function toggleHidden(element) {
     const div = document.getElementById(element);
     div.classList.toggle("hidden");
 }
 
-export function displayConversation(text) {
+function displayConversation(text) {
     const bubble = document.getElementById("speech");
     bubble.innerHTML = text;
 }
