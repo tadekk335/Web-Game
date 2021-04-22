@@ -1,46 +1,24 @@
+import * as methods from "../main/main"
+
 function displayFirst(fromElement, choice, conversation) {
-    hideButtons(fromElement);
-    toggleHidden(choice);
+    methods.hideButtons(fromElement);
+    methods.toggleHidden(choice);
     displayNarrator(conversation);
 }
 
-function displayNext(fromElement, choice, conversation = "...") {
-    hideButtons(fromElement);
-    toggleHidden(choice);
-    displayConversation(conversation);
-}
-
 function elfChoice(fromElement, choice, conversation = "...") {
-    hideButtons(fromElement);
+    methods.hideButtons(fromElement);
     if(sessionStorage.getItem("Race") === "Elf") {
        document.getElementById(choice).innerHTML = "<p>As an elf you do not have that problem and you read it aloud 'Relatives beware of heat, for the ancient greed has awakened in mountains again.'</p> <div class='d-flex justify-content-around'>"+
        "<button class='btn btn-secondary' id='moveOnButton' onclick=\"displayNext('elvenAdvert','startingPlace')\">Continue</button></div>"
-        displayConversation(conversation);
+        methods.displayConversation(conversation);
     }
     toggleHidden(choice);
-}
-
-function toggleHidden(element) {
-    const div = document.getElementById(element);
-    div.classList.toggle("hidden");
 }
 
 function displayNarrator(conversation) {
     toggleHidden("narrator");
     displayConversation(conversation);
-}
-
-function displayConversation(text) {
-    const bubble = document.getElementById("speech");
-    bubble.innerHTML = text;
-}
-
-function hideButtons(fromElement) {
-    const parent = document.getElementById(fromElement);
-    const matches = parent.querySelectorAll("button");
-    matches.forEach(element => {
-        element.classList.add("hidden");
-    });
 }
 
 function submitAnswers() {
@@ -60,7 +38,7 @@ function submitAnswers() {
     sessionStorage.setItem("Race", selectedRace);
     sessionStorage.setItem("Class", selectedClass);
 
-    displayConversation("Nice to meet you " + sessionStorage.getItem("Name"));
-    toggleHidden("submit");
-    toggleHidden("advertScene");
+    methods.displayConversation("Nice to meet you " + sessionStorage.getItem("Name"));
+    methods.toggleHidden("submit");
+    methods.toggleHidden("advertScene");
 }
