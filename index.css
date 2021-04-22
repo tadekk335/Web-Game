@@ -1,0 +1,21 @@
+
+body,
+html {
+    height: 100%;
+    background-color: #f2cd96;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.bg {
+    background-image: url("../photos/old-paper.jpg");
+    height: 100%;
+    background-position:top;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#startGame {
+    align-content: center;
+}
+
