@@ -1,4 +1,4 @@
-import * as methods from "main/main"
+import * as methods from "/main/main"
 
 function displayFirst(fromElement, choice, conversation) {
     methods.hideButtons(fromElement);
