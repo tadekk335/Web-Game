@@ -8,7 +8,7 @@ html {
 }
 
 .bg {
-    background-image: url("../photos/old-paper.jpg");
+    background-image: url("photos/old-paper.jpg");
     height: 100%;
     background-position:top;
     background-repeat: no-repeat;
